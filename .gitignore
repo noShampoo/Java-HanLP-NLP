@@ -21,3 +21,23 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+
+# IDEA
+.idea/
+
+# Maven
+target/
+ServiceInnovationCompetition.iml
+
+# Project
+src/main/test/
+src/main/not-using-file/
+
+# Frontend
+src/main/webapp/css/
+src/main/webapp/fonts/
+src/main/webapp/html/
+src/main/webapp/images/
+src/main/webapp/js/
+src/main/webapp/index.html
+
