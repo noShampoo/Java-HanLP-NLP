@@ -1,6 +1,7 @@
 package team.wsfp.project.dao;
 
 import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
 import team.wsfp.project.domain.Account;
@@ -15,13 +16,13 @@ public interface AccountDao {
     List<Account> findAll();
 
     @Select("select userid from account where username = #{userName}")
-    String findNowUserId(String userName);
+    String findNowUserId(@Param("userName") String userName);
 
     @Select("select username from account")
     List<String> findAlluserName();
 
     @Select("select * from account where username = #{userName}")
-    Account findAccountByUser(String userName);
+    Account findAccountByUser(@Param("userName") String userName);
 
     @Insert("insert into account(userid, username, password) values(#{userId}, #{userName}, #{password})")
     void insertAccount(Account account);
