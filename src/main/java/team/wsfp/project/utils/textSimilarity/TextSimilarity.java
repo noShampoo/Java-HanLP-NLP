@@ -7,10 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
 
-/**
- * @author lazycece
- * @date 2019/7/25
- */
+
 public class TextSimilarity {
     /**
      * 原始文本

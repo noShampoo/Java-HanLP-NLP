@@ -4,10 +4,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-/**
- * @author lazycece
- * @date 2019/7/19
- */
 public class Similarity {
 
     public static double cosine(List<String> originWord, List<String> targetWord) {
