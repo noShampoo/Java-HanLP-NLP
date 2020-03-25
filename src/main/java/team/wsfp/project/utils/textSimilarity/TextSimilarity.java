@@ -31,6 +31,11 @@ public class TextSimilarity {
         return Similarity.cosine(segment(text), segment(target));
     }
 
+    /**
+     * 对目标短语进行分词处理
+     * @param text
+     * @return
+     */
     private List<String> segment(String text) {
         List<String> words = new ArrayList<>();
         List<Term> list = HanLP.segment(text);

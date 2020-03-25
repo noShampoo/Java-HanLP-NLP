@@ -6,6 +6,12 @@ import java.util.Map;
 
 public class Similarity {
 
+    /**
+     * 通过分词后，计算对应词的余弦值得到文本相似度(TF-IDF)
+     * @param originWord
+     * @param targetWord
+     * @return
+     */
     public static double cosine(List<String> originWord, List<String> targetWord) {
 
         Map<String, int[]> wordDict = new HashMap<>();
