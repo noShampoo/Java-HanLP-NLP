@@ -5,9 +5,12 @@ import org.springframework.stereotype.Service;
 import team.wsfp.project.dao.AccountDao;
 import team.wsfp.project.dao.ProblemDao;
 import team.wsfp.project.domain.Problem;
+import team.wsfp.project.domain.cache.ProblemScore;
+import team.wsfp.project.service.CacheService;
 import team.wsfp.project.service.ProblemService;
 import team.wsfp.project.utils.textSimilarity.TextSimilarity;
 
+import java.lang.ref.WeakReference;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -16,9 +19,21 @@ import java.util.Map;
 public class ProblemServiceImpl implements ProblemService {
     @Autowired
     ProblemDao problemDao;
+
     @Autowired
     AccountDao accountDao;
 
+    @Autowired
+    CacheService cacheService;
+
+    /**
+     * 最终保存的结果
+     * @param problemDesc
+     * @param standardAnswer
+     * @param studentAnswer
+     * @param score
+     * @return
+     */
     @Override
     public Boolean saveProblem(String problemDesc, String standardAnswer, String studentAnswer,
                                Integer score) {
@@ -46,6 +61,7 @@ public class ProblemServiceImpl implements ProblemService {
         sysScore = (int)(similarity * 100);
         map.put("sysScore", sysScore);
         map.put("problemNum", problemNum);
+        cacheService.   addProblemScore(map);
         return map;
     }
 

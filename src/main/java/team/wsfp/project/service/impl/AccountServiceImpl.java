@@ -26,10 +26,16 @@ public class AccountServiceImpl implements AccountService {
         return accountDao.findAll();
     }
 
+    /**
+     * 从表中得到数据进行判断
+     * @param userName
+     * @param password
+     * @return
+     */
     @Override
     public Boolean checkAccountByUser(String userName, String password) {
         Account account = accountDao.findAccountByUser(userName);
-        System.out.println(account.toString());
+//        System.out.println(account.toString());
         if (account != null) {
             if (account.getPassword().equals(password)) {
                 nowAccount = accountDao.findAccountByUser(userName);
@@ -44,6 +50,12 @@ public class AccountServiceImpl implements AccountService {
         return false;
     }
 
+    /**
+     * 注册账号
+     * @param userName
+     * @param password
+     * @return
+     */
     @Override
     public Boolean registerAccount(String userName, String password) {
         Account account = new Account();

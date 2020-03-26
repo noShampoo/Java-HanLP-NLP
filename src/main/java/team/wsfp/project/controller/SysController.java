@@ -18,6 +18,14 @@ public class SysController {
     @Autowired
     ProblemService problemService;
 
+    /**
+     *
+     * @param problem
+     * @param standardAnswer
+     * @param studentAnswer
+     * @param standardKeyword
+     * @return
+     */
     @RequestMapping(value = "/getInformation.do" ,method = RequestMethod.POST)
     @ResponseBody
     public Map getInformation(@RequestParam("problem") String problem,

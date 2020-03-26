@@ -2,10 +2,8 @@ package team.wsfp.project.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
+import team.wsfp.project.log.annotation.AccountAccess;
 import team.wsfp.project.service.AccountService;
 
 import java.util.HashMap;
@@ -19,6 +17,13 @@ public class AccountController {
     @Autowired
     AccountService accountService;
 
+    /**
+     * 登录
+     * @param userName
+     * @param password
+     * @return
+     */
+    @AccountAccess
     @RequestMapping(value = "checkLogin.do", method = RequestMethod.POST)
     @ResponseBody
     public Map<String, Object> checkLogin(@RequestParam("userName") String userName,
@@ -34,6 +39,13 @@ public class AccountController {
         return map;
     }
 
+    /**
+     * 注册
+     * @param regUserName
+     * @param regPassword
+     * @param reRegPassword
+     * @return
+     */
     @RequestMapping(value = "register.do", method = RequestMethod.POST)
     @ResponseBody
     public Map register(@RequestParam("regUserName") String regUserName,
